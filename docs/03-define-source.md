@@ -88,18 +88,18 @@ Edit the `created` object to include a `Spec` declaring a `Sink`.
 
 ```go
 created := &SampleSource{
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      "foo",
-			Namespace: "default",
-		},
-		Spec: SampleSourceSpec{
-			Sink: &corev1.ObjectReference{
-				Name:       "fooservice",
-				APIVersion: "v1",
-				Kind:       "Service",
-			},
-		},
-	}
+  ObjectMeta: metav1.ObjectMeta{
+    Name:      "foo",
+    Namespace: "default",
+  },
+  Spec: SampleSourceSpec{
+    Sink: &corev1.ObjectReference{
+      Name:       "fooservice",
+      APIVersion: "v1",
+      Kind:       "Service",
+    },
+  },
+}
 ```
 
 Edit the `updated` object, setting `SinkURI` in its `Status`.
@@ -107,11 +107,11 @@ Edit the `updated` object, setting `SinkURI` in its `Status`.
 
 ```go
 // Test Updating the Labels and Status
-	updated := fetched.DeepCopy()
-	updated.Labels = map[string]string{"hello": "world"}
-	updated.Status = SampleSourceStatus{
-		SinkURI: "http://example.com",
-	}
+updated := fetched.DeepCopy()
+updated.Labels = map[string]string{"hello": "world"}
+updated.Status = SampleSourceStatus{
+  SinkURI: "http://example.com",
+}
 ```
 
 Run `make` to run tests and calculate the coverage percentage for all packages
