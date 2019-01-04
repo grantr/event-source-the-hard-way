@@ -32,7 +32,7 @@ Kubebuilder not your thing? Prefer the easy way? Check out these alternatives.
 
 * [Prerequisites](docs/01-prerequisites.md)
 * [Bootstrap Project](docs/02-bootstrap.md)
-* [Define Source Type](docs/03-define-source-type.md)
+* [Define Source](docs/03-define-source.md)
 * [Reconcile Sources](docs/04-reconcile-sources.md)
 * [Publish to Cluster](docs/05-publish-to-cluster.md)
 * [Dispatching Events](docs/06-dispatching-events.md)
