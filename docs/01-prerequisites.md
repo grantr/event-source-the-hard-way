@@ -29,4 +29,4 @@ Create an empty initial commit.
 git commit -m "Initial commit" --allow-empty
 ```
 
-Next: [Bootstrap](docs/02-bootstrap.md)
+Next: [Bootstrap](02-bootstrap.md)

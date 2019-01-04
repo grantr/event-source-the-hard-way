@@ -124,4 +124,4 @@ make
 These edits in the reference project can be viewed at
 https://github.com/grantr/sample-source/pull/3.
 
-Next: [Reconcile Sources](docs/04-reconcile-sources.md)
+Next: [Reconcile Sources](04-reconcile-sources.md)
