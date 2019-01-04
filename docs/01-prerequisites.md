@@ -15,4 +15,18 @@ You'll need these tools installed:
 
 ## Create a git repo
 
-Create a git repo locally in the proper GOPATH location . For the code here, that's `$GOPATH/src/github.com/grantr/sample-source`
+Create a git repo locally in the proper GOPATH location . For the reference
+project, that's `$GOPATH/src/github.com/grantr/sample-source`.
+
+```
+cd $GOPATH/src/github.com/grantr
+git init sample-source
+```
+
+Create an empty initial commit.
+
+```
+git commit -m "Initial commit" --allow-empty
+```
+
+Next: [Bootstrap](docs/02-bootstrap.md)
