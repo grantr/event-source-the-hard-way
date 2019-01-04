@@ -121,6 +121,17 @@ in `pkg` and `cmd`.
 make
 ```
 
+```
+go test ./pkg/... ./cmd/... -coverprofile cover.out
+?   	github.com/knative/sample-source/pkg/apis	[no test files]
+?   	github.com/knative/sample-source/pkg/apis/sources	[no test files]
+ok  	github.com/knative/sample-source/pkg/apis/sources/v1alpha1	8.528s	coverage: 33.3% of statements
+?   	github.com/knative/sample-source/pkg/controller	[no test files]
+ok  	github.com/knative/sample-source/pkg/controller/samplesource	9.151s	coverage: 67.6% of statements
+?   	github.com/knative/sample-source/pkg/webhook	[no test files]
+?   	github.com/knative/sample-source/cmd/manager	[no test files]
+```
+
 These edits in the reference project can be viewed at
 https://github.com/grantr/sample-source/pull/3.
 
