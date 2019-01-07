@@ -23,7 +23,7 @@ You'll need to choose the following:
     notice at the top of each source file. The reference project uses `The
     Knative Authors.`
 
-```
+```sh
 kubebuilder init --domain knative.dev --license apache2 --owner "The Knative Authors"
 ```
 

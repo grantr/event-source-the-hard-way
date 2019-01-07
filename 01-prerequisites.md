@@ -19,14 +19,14 @@ You'll need these tools installed:
 Create a git repo locally in the proper GOPATH location . For the reference
 project, that's `$GOPATH/src/github.com/grantr/sample-source`.
 
-```
+```sh
 cd $GOPATH/src/github.com/grantr
 git init sample-source
 ```
 
 Create an empty initial commit.
 
-```
+```sh
 git commit -m "Initial commit" --allow-empty
 ```
 

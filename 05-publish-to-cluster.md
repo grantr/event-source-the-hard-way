@@ -10,13 +10,13 @@ Start a minikube cluster.
 _If you already have a Kubernetes cluster running, you can skip this step. The
 cluster must be 1.11+ if you enabled the status subresource earlier._
 
-```
+```sh
 minikube start
 ```
 
 Run `make install` to install the generated CRDs into the cluster.
 
-```
+```sh
 make install
 ```
 
@@ -24,7 +24,7 @@ Run `make run` to run the controller process locally, talking to the
 kubectl-configured cluster (this will be minikube if you used `minikube start`
 earlier).
 
-```
+```sh
 make run
 ```
 
@@ -39,7 +39,7 @@ In the reference project, this produces log output like this:
 
 In a different terminal, use `kubectl apply` to create a source.
 
-```
+```sh
 kubectl apply -f config/samples
 ```
 
@@ -109,7 +109,7 @@ Status` log line. In the reference project, that line looks like this:
 Verify that the source's SinkURI was updated by the controller. In the reference
 project, that command looks like this.
 
-```
+```sh
 kubectl get samplesources samplesource-sample -oyaml
 ```
 
@@ -139,13 +139,13 @@ Export the `IMG` environment variable with a value equal to the desired
 container image URL. This URL will be different depending on your container
 image registry. The reference project uses Docker Hub.
 
-```
+```sh
 export IMG=grantrodgers/samplesource-manager:latest
 ```
 
 Run `make docker-build` to build the container image.
 
-```
+```sh
 make docker-build
 ```
 
@@ -155,7 +155,7 @@ built image._
 
 Run `make docker-push` to publish the container image.
 
-```
+```sh
 make docker-push
 ```
 
@@ -163,7 +163,7 @@ Run `make deploy` to create the resources to run the controller in the
 Kubernetes cluster. This will use the cluster referenced in the current
 `kubectl` context.
 
-```
+```sh
 make deploy
 ```
 
@@ -171,7 +171,7 @@ Verify that the controller is running by checking for a `Running` pod in the
 correct namespace. This will be the project name suffixed with `-system`. In the
 reference project, the namespace is `sample-source-system`.
 
-```
+```sh
 kubectl get pods -n sample-source-system
 ```
 

@@ -27,7 +27,7 @@ You'll need to choose the following:
     `samplesources.sources.knative.dev`, and its `apiVersion` is
     `sources.knative.dev/v1alpha1`.
 
-```
+```sh
 kubebuilder create api --group sources --version v1alpha1 --kind SampleSource
 ```
 
@@ -70,14 +70,14 @@ type SampleSourceStatus struct {
 
 Run `dep ensure` to add the new library to `vendor` if necessary.
 
-```
+```sh
 dep ensure
 ```
 
 Run `make` to regenerate the deepcopy code in `zz_generated.deepcopy.go` and the
 CRD's OpenAPI schema.
 
-```
+```sh
 make
 ```
 
@@ -118,7 +118,7 @@ updated.Status = SampleSourceStatus{
 Run `make` to run tests and calculate the coverage percentage for all packages
 in `pkg` and `cmd`.
 
-```
+```sh
 make
 ```
 
@@ -161,7 +161,7 @@ type SampleSource struct {
 
 Run `make` to regenerate the CRD yaml.
 
-```
+```sh
 make
 ```
 
@@ -192,7 +192,7 @@ g.Expect(fetched.Status).To(gomega.Equal(updated.Status))
 
 Run `make` to verify tests pass.
 
-```
+```sh
 make
 ```
 
