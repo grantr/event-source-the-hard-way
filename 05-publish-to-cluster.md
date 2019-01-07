@@ -1,6 +1,7 @@
 # Publish to a Kubernetes Cluster
 
-So far we've only tested the controller code locally. Now we'd like to deploy it to a cluster and test it working.
+So far we've only tested the controller code locally. Now we'd like to deploy it
+to a cluster and test it working.
 
 ## Run the controller locally
 
@@ -19,7 +20,9 @@ Run `make install` to install the generated CRDs into the cluster.
 make install
 ```
 
-Run `make run` to run the controller process locally, talking to the kubectl-configured cluster (this will be minikube if you used `minikube start` earlier).
+Run `make run` to run the controller process locally, talking to the
+kubectl-configured cluster (this will be minikube if you used `minikube start`
+earlier).
 
 ```
 make run
@@ -96,14 +99,15 @@ spec:
     namespace: default" | kubectl apply -f -
 ```
 
-Check the controller logs in the first terminal. You should see an
-`Updated Status` log line. In the reference project, that line looks like this:
+Check the controller logs in the first terminal. You should see an `Updated
+Status` log line. In the reference project, that line looks like this:
 
 ```json
 {"level":"info","ts":1546898070.4645903,"logger":"controller","msg":"Updating Status","request":{"namespace":"default","name":"samplesource-sample"}}
 ```
 
-Verify that the source's SinkURI was updated by the controller. In the reference project, that command looks like this.
+Verify that the source's SinkURI was updated by the controller. In the reference
+project, that command looks like this.
 
 ```
 kubectl get samplesources samplesource-sample -oyaml
@@ -127,12 +131,13 @@ status:
 Normally controllers run inside the Kubernetes cluster. This requires publishing
 a container image and creating several Kubernetes objects:
 
-* Namespace to run the controller pod in
-* StatefulSet or Deployment to manage the controller pod
-* RBAC rules granting permissions to manipulate Kubernetes resources
+*   Namespace to run the controller pod in
+*   StatefulSet or Deployment to manage the controller pod
+*   RBAC rules granting permissions to manipulate Kubernetes resources
 
 Export the `IMG` environment variable with a value equal to the desired
-container image URL. This URL will be different depending on your container image registry. The reference project uses Docker Hub.
+container image URL. This URL will be different depending on your container
+image registry. The reference project uses Docker Hub.
 
 ```
 export IMG=grantrodgers/samplesource-manager:latest
@@ -170,6 +175,7 @@ reference project, the namespace is `sample-source-system`.
 kubectl get pods -n sample-source-system
 ```
 
-Now you can use the verification procedure outlined above in [Create a sample source](#create-a-sample-source).
+Now you can use the verification procedure outlined above in
+[Create a sample source](#create-a-sample-source).
 
 Next: [Dispatching Events](06-dispatching-events.md)
