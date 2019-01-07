@@ -200,5 +200,4 @@ make
 These edits in the reference project can be viewed at
 https://github.com/grantr/sample-source/pull/4.
 
-
 Next: [Reconcile Sources](04-reconcile-sources.md)
