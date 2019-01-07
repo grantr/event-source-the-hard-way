@@ -30,9 +30,9 @@ Kubebuilder not your thing? Prefer the easy way? Check out these alternatives.
 
 ## Labs
 
-* [Prerequisites](docs/01-prerequisites.md)
-* [Bootstrap Project](docs/02-bootstrap.md)
-* [Define The Source Resource](docs/03-define-source.md)
-* [Reconcile Sources](docs/04-reconcile-sources.md)
-* [Publish to Cluster](docs/05-publish-to-cluster.md)
-* [Dispatching Events](docs/06-dispatching-events.md)
+* [Prerequisites](01-prerequisites.md)
+* [Bootstrap Project](02-bootstrap.md)
+* [Define The Source Resource](03-define-source.md)
+* [Reconcile Sources](04-reconcile-sources.md)
+* [Publish to Cluster](05-publish-to-cluster.md)
+* [Dispatching Events](06-dispatching-events.md)
