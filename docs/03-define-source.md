@@ -81,10 +81,6 @@ CRD's OpenAPI schema.
 make
 ```
 
-## Add Status subresource
-
-_TODO_
-
 ## Update type tests
 
 Locate the type tests file. In the reference project, this is
@@ -140,5 +136,69 @@ ok  	github.com/knative/sample-source/pkg/controller/samplesource	9.151s	coverag
 
 These edits in the reference project can be viewed at
 https://github.com/grantr/sample-source/pull/3.
+
+## Enable the Status subresource
+
+The Status subresource allows controllers to update only the Status field
+without updating the Spec field. Since controllers should not update the Spec of
+their watched objects, this makes controllers safer and easier to write by
+ensuring they never update Spec accidentally.
+
+_This feature became beta in Kubernetes 1.11, so it might not work properly with
+older versions._
+
+Add the Kubebuilder status subresource annotation to the struct defining the
+object. In the reference project, this is in
+`pkg/apis/sources/v1alpha1/samplesource_types.go`.
+
+```go
+// SampleSource is the Schema for the samplesources API
+// +k8s:openapi-gen=true
+// +kubebuilder:subresource:status
+type SampleSource struct {
+  // ...  
+}
+```
+
+Run `make` to regenerate the CRD yaml. 
+
+```
+make
+```
+
+## Update tests to use the Status subresource
+
+Now update the tests to use the Status subresource to set SinkURI. This now
+needs to be separate from the labels update.
+
+```go
+// Test Updating the Labels
+updated := fetched.DeepCopy()
+updated.Labels = map[string]string{"hello": "world"}
+g.Expect(c.Update(context.TODO(), updated)).NotTo(gomega.HaveOccurred())
+g.Expect(c.Get(context.TODO(), key, fetched)).NotTo(gomega.HaveOccurred())
+g.Expect(fetched).To(gomega.Equal(updated))
+
+// Test Updating the Status via subresource
+updated.Status = SampleSourceStatus{
+	SinkURI: "http://example.com",
+}
+// DeepCopy is required here because the Status update will set the SelfLink
+// to reference to /status subresource instead of the original resource.
+statusupdated := updated.DeepCopy()
+g.Expect(c.Status().Update(context.TODO(), statusupdated)).NotTo(gomega.HaveOccurred())
+g.Expect(c.Get(context.TODO(), key, fetched)).NotTo(gomega.HaveOccurred())
+g.Expect(fetched.Status).To(gomega.Equal(updated.Status))
+```
+
+Run `make` to verify tests pass.
+
+```
+make
+```
+
+These edits in the reference project can be viewed at
+https://github.com/grantr/sample-source/pull/4.
+
 
 Next: [Reconcile Sources](04-reconcile-sources.md)
